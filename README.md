@@ -1,0 +1,2 @@
+# TheoremusTask
+.NetCore, PostgreSQL API
