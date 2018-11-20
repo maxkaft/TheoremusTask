@@ -9,6 +9,6 @@ namespace Stations
         public int GroupId { get; set; }
 
         public LogicalGroups Group { get; set; }
-        public Stations Station { get; set; }
+        public Station Station { get; set; }
     }
 }

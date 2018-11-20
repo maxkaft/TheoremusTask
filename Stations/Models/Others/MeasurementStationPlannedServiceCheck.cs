@@ -12,6 +12,6 @@ namespace Stations
         public Guid Id { get; set; }
         public Guid StationId { get; set; }
 
-        public Stations Station { get; set; }
+        public Station Station { get; set; }
     }
 }

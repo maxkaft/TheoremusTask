@@ -8,7 +8,7 @@ namespace Stations
         public StationTypes()
         {
             MeasurementStationTypeProperty = new HashSet<MeasurementStationTypeProperty>();
-            Stations = new HashSet<Stations>();
+            Stations = new HashSet<Station>();
         }
 
         public Guid Id { get; set; }
@@ -21,6 +21,6 @@ namespace Stations
         public string SupportedNetworkProtocolsCsv { get; set; }
 
         public ICollection<MeasurementStationTypeProperty> MeasurementStationTypeProperty { get; set; }
-        public ICollection<Stations> Stations { get; set; }
+        public ICollection<Station> Stations { get; set; }
     }
 }

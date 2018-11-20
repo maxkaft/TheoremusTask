@@ -10,7 +10,7 @@ namespace Stations
             MeasurementModuleLogicalGroup = new HashSet<MeasurementModuleLogicalGroup>();
             MeasurementModulePlannedServiceCheck = new HashSet<MeasurementModulePlannedServiceCheck>();
             MeasurementModuleProperty = new HashSet<MeasurementModuleProperty>();
-            Stations = new HashSet<Stations>();
+            Stations = new HashSet<Station>();
         }
 
         public Guid Id { get; set; }
@@ -28,6 +28,6 @@ namespace Stations
         public ICollection<MeasurementModuleLogicalGroup> MeasurementModuleLogicalGroup { get; set; }
         public ICollection<MeasurementModulePlannedServiceCheck> MeasurementModulePlannedServiceCheck { get; set; }
         public ICollection<MeasurementModuleProperty> MeasurementModuleProperty { get; set; }
-        public ICollection<Stations> Stations { get; set; }
+        public ICollection<Station> Stations { get; set; }
     }
 }

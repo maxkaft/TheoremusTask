@@ -9,8 +9,8 @@ namespace Stations
         {
             ModulesExpectedLocation = new HashSet<Modules>();
             ModulesLatestLocation = new HashSet<Modules>();
-            StationsExpectedLocation = new HashSet<Stations>();
-            StationsLatestLocation = new HashSet<Stations>();
+            StationsExpectedLocation = new HashSet<Station>();
+            StationsLatestLocation = new HashSet<Station>();
         }
 
         public Guid Id { get; set; }
@@ -24,7 +24,7 @@ namespace Stations
 
         public ICollection<Modules> ModulesExpectedLocation { get; set; }
         public ICollection<Modules> ModulesLatestLocation { get; set; }
-        public ICollection<Stations> StationsExpectedLocation { get; set; }
-        public ICollection<Stations> StationsLatestLocation { get; set; }
+        public ICollection<Station> StationsExpectedLocation { get; set; }
+        public ICollection<Station> StationsLatestLocation { get; set; }
     }
 }
