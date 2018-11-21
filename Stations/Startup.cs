@@ -34,7 +34,7 @@ namespace Stations
             //NB
             services.AddTransient(typeof(IStationsService), typeof(StationsService));
 
-            var connection = @"User ID=max;Password=1234;Host=localhost;Port=5432;Database=postgres;Pooling=true;";
+            var connection = @"User ID=max;Password=1234;Host=localhost;Port=8080;Database=postgres;Pooling=true;";
             services.AddDbContext<StationsContext>(op => op.UseNpgsql(connection));
         }
 

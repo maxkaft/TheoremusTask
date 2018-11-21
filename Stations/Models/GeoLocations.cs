@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Stations
 {
@@ -7,8 +8,6 @@ namespace Stations
     {
         public GeoLocations()
         {
-            ModulesExpectedLocation = new HashSet<Modules>();
-            ModulesLatestLocation = new HashSet<Modules>();
             StationsExpectedLocation = new HashSet<Station>();
             StationsLatestLocation = new HashSet<Station>();
         }
@@ -22,8 +21,6 @@ namespace Stations
         public string Description { get; set; }
         public DateTime TimeCreatedUtc { get; set; }
 
-        public ICollection<Modules> ModulesExpectedLocation { get; set; }
-        public ICollection<Modules> ModulesLatestLocation { get; set; }
         public ICollection<Station> StationsExpectedLocation { get; set; }
         public ICollection<Station> StationsLatestLocation { get; set; }
     }
