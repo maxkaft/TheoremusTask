@@ -22,7 +22,7 @@ namespace Stations.Services
 
             stations = this._context.Stations
                 .Include(s => s.ExpectedLocation)
-                .Include(s => s.LatestLocation)
+                 .Include(s => s.LatestLocation)
                 .ToList();
 
             return stations;

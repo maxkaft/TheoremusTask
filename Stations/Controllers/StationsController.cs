@@ -21,10 +21,16 @@ namespace Stations.Controllers
             this.service = service;
         }
 
+        //[HttpGet]
+        //[Route("api/index")]
+        //public IActionResult Index()
+        //{
+        //    return View();
+        //}
+       
         [HttpGet]
         [Route("api/stations")]
-        public IActionResult Index()
-        //public IActionResult<IEnumerable<Station>> Index()
+        public IActionResult GetStations()
         {
             var stations = service.GetStations();
             return Ok(stations.ToList());

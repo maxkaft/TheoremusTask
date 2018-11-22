@@ -23,7 +23,7 @@ namespace Stations
             Configuration = configuration;
         }
 
-        
+
 
         public IConfiguration Configuration { get; }
 
@@ -36,6 +36,12 @@ namespace Stations
 
             var connection = @"User ID=max;Password=1234;Host=localhost;Port=8080;Database=postgres;Pooling=true;";
             services.AddDbContext<StationsContext>(op => op.UseNpgsql(connection));
+            services.AddNodeServices();
+
+            services.AddMvc()
+       .AddJsonOptions(
+           options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+       );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,9 +55,10 @@ namespace Stations
             {
                 app.UseHsts();
             }
-           
+
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
             app.UseMvc();
-            
         }
     }
 }
