@@ -21,13 +21,6 @@ namespace Stations.Controllers
         {
             this.service = service;
         }
-
-        //[HttpGet]
-        //[Route("api/index")]
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
        
         [HttpGet]
         [Route("api/stations")]

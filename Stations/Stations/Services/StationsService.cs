@@ -15,7 +15,6 @@ namespace Stations.Services
             _context = context;
         }
 
-        //IEnumerable
         public IEnumerable<Station> GetStations()
         {
             IEnumerable<Station> stations = new List<Station>();

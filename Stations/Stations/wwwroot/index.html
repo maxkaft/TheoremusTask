@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #map {
+            height: 100%;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="map"></div>
+    <script>
+        var map;
+        let infoBoxes = [];
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 7,
+                center: new google.maps.LatLng(41.32547020, 19.81626749),
+                mapTypeId: 'terrain'
+            });
+
+            var script = document.createElement('script');
+            script.src = 'https://localhost:44337/api/stations';
+            document.getElementsByTagName('head')[0].appendChild(script);
+            GetStationsAjax();
+        }
+
+        function GetStationsAjax() {
+            $.ajax({
+                method: "GET",
+                url: "https://localhost:44337/api/stations"
+            })
+                .then(function (result) {
+                    
+                    for (i = 0; i < result.length; i++) {
+                        let tokens = result[i].expectedLocation;
+                        let latitude = tokens.latitude;
+                        let longitude = tokens.longitude;
+                        var latLng = new google.maps.LatLng(latitude, longitude);
+
+                        var marker = new google.maps.Marker({
+                            position: latLng,
+                            map: map,
+                        });
+
+                        let stationStatus = "Not Active";
+
+                        if (result[i].isActive) {
+                            stationStatus = "Active";
+                        }
+                        let info = 
+                        `<div><h2>Station Address: ${result[i].expectedLocation.annotation}</h2>
+                            <p>Latitude: ${tokens.latitude.toFixed(5)}</p>
+                            <p>Longitude: ${tokens.longitude.toFixed(5)}</p>
+                            <p>Station Status: ${stationStatus}</p>
+                        </div>`;
+                        
+                        attachInfo(marker, info)
+                    }
+                }).catch(function (e) {
+                    console.log(e.statusText);
+                })
+        }
+
+        function attachInfo(marker, info) {
+            
+            var infoWindow = new google.maps.InfoWindow({
+                content: info
+            });
+            infoBoxes.push(infoWindow);
+            marker.addListener('click', function () {
+                closeAllInfoBoxes();
+                infoWindow.open(marker.get('map'), marker);
+            });
+        }
+
+        function closeAllInfoBoxes() {
+            for (var i = 0; i < infoBoxes.length; i++) {
+                infoBoxes[i].close();
+            }
+        }
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBA57a8OpawYei4yXpAkFoGwtktzdYo4p4&callback=initMap">
+    </script>
+</body>
+</html>

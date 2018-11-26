@@ -23,14 +23,10 @@ namespace Stations
             Configuration = configuration;
         }
 
-
-
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //CORS
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowSpecificOrigin",
@@ -38,20 +34,18 @@ namespace Stations
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            //NB
             services.AddTransient(typeof(IStationsService), typeof(StationsService));
 
             var connection = @"User ID=max;Password=1234;Host=localhost;Port=8080;Database=postgres;Pooling=true;";
+
             services.AddDbContext<StationsContext>(op => op.UseNpgsql(connection));
             services.AddNodeServices();
-
             services.AddMvc()
-       .AddJsonOptions(
-           options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+                .AddJsonOptions(options =>
+                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddCors();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
@@ -62,9 +56,7 @@ namespace Stations
             {
                 app.UseHsts();
             }
-            //CORS
             app.UseCors("AllowSpecificOrigin");
-
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseMvc();

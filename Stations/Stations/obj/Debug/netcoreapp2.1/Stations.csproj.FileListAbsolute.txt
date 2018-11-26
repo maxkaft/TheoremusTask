@@ -13,11 +13,4 @@ D:\VisualStudio\Stations\Stations\obj\Debug\netcoreapp2.1\Stations.csprojAssembl
 D:\VisualStudio\Stations\Stations\obj\Debug\netcoreapp2.1\Stations.dll
 D:\VisualStudio\Stations\Stations\obj\Debug\netcoreapp2.1\Stations.pdb
 D:\VisualStudio\Stations\Stations\bin\Debug\netcoreapp2.1\Stations.Views.dll
-D:\VisualStudio\Stations\Stations\bin\Debug\netcoreapp2.1\Stations.Views.pdb
-D:\VisualStudio\Stations\Stations\obj\Debug\netcoreapp2.1\Stations.TagHelpers.input.cache
-D:\VisualStudio\Stations\Stations\obj\Debug\netcoreapp2.1\Stations.TagHelpers.output.cache
-D:\VisualStudio\Stations\Stations\obj\Debug\netcoreapp2.1\Stations.RazorCoreGenerate.cache
-D:\VisualStudio\Stations\Stations\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
-D:\VisualStudio\Stations\Stations\obj\Debug\netcoreapp2.1\Stations.RazorTargetAssemblyInfo.cs
-D:\VisualStudio\Stations\Stations\obj\Debug\netcoreapp2.1\Stations.Views.pdb
 D:\VisualStudio\Stations\Stations\obj\Debug\netcoreapp2.1\Stations.csproj.CopyComplete
