@@ -27,12 +27,6 @@ namespace Stations
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(options =>
-            {
-                options.AddPolicy("AllowSpecificOrigin",
-                    builder => builder.AllowAnyOrigin());
-            });
-
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddTransient(typeof(IStationsService), typeof(StationsService));
 
@@ -43,7 +37,6 @@ namespace Stations
             services.AddMvc()
                 .AddJsonOptions(options =>
                     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
-            services.AddCors();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -56,7 +49,6 @@ namespace Stations
             {
                 app.UseHsts();
             }
-            app.UseCors("AllowSpecificOrigin");
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseMvc();

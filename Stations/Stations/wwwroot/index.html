@@ -6,7 +6,7 @@
             height: 100%;
         }
 
-        html, body {
+        html, body {    
             height: 100%;
             margin: 0;
             padding: 0;
@@ -42,7 +42,6 @@
                 url: "https://localhost:44337/api/stations"
             })
                 .then(function (result) {
-                    
                     for (i = 0; i < result.length; i++) {
                         let tokens = result[i].expectedLocation;
                         let latitude = tokens.latitude;
@@ -74,7 +73,6 @@
         }
 
         function attachInfo(marker, info) {
-            
             var infoWindow = new google.maps.InfoWindow({
                 content: info
             });
